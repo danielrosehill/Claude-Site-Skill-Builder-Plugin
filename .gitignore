@@ -1,0 +1,4 @@
+local/
+captures/
+*.har
+__pycache__/

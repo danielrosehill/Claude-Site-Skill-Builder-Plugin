@@ -1,0 +1,12 @@
+{
+  "name": "site-skill-builder",
+  "version": "1.0.0",
+  "description": "Build a Claude Code plugin for a website by observing it in your own signed-in browser: propose skills, author durable ones, keep them alive as the UI drifts.",
+  "author": {
+    "name": "Daniel Rosehill",
+    "url": "https://github.com/danielrosehill"
+  },
+  "repository": "https://github.com/danielrosehill/Claude-Site-Skill-Builder-Plugin",
+  "license": "MIT",
+  "keywords": ["plugin-authoring", "browser-automation", "site-integration", "claude-in-chrome", "maintenance"]
+}

@@ -1,0 +1,50 @@
+{
+  "id": "example-us",
+  "name": "Example (US)",
+  "host": "www.example.com",
+  "currency": "USD",
+  "verified": "YYYY-MM-DD",
+  "verified_how": "what was actually checked, and under which session",
+  "requires_session": true,
+  "access": {
+    "default_route": "claude-in-chrome",
+    "fallback_route": "fetch",
+    "working_routes": [],
+    "dead_routes": [],
+    "session_needed_for": "which surfaces genuinely need the account"
+  },
+  "urls": {
+    "detail": "https://www.example.com/p/{id}",
+    "search": "https://www.example.com/search?q={terms}",
+    "slug_is_cosmetic": {
+      "rule": "unknown until checked",
+      "consequence": "a wrong slug may silently serve a different item at HTTP 200"
+    }
+  },
+  "identifier": {
+    "primary": "what the site calls its key",
+    "format": "^regex$",
+    "examples": [],
+    "notes": "what it does not mean"
+  },
+  "extraction": {
+    "example_field": {
+      "rung": 3,
+      "find": "how a person would describe locating it",
+      "fallback": "the next handle down",
+      "selector_hint": "selector observed on the date below",
+      "hint_verified": "YYYY-MM-DD",
+      "assert": "what proves the right element was found",
+      "traps": []
+    }
+  },
+  "not_on_the_page": {},
+  "conduct": {
+    "never": [
+      "order, pay, or otherwise commit the user to a transaction",
+      "change account settings",
+      "retry or attempt to satisfy a bot challenge",
+      "fan out parallel requests"
+    ]
+  }
+}
