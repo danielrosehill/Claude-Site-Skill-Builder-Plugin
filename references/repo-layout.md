@@ -50,5 +50,5 @@ Templates: `templates/observation-note.md` in this plugin.
 
 `site-skill-builder` writes into **the plugin repo you are building**, resolved from
 `$CLAUDE_PROJECT_DIR` — it keeps no state of its own. If the target repo does not
-exist yet, `create-claude-plugins:new-claude-plugin` scaffolds and registers it; this
+exist yet, `create-plugins:new-claude-plugin` scaffolds and registers it; this
 plugin fills it.

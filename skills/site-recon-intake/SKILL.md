@@ -21,7 +21,7 @@ is worth five minutes of questions rather than five hours of the wrong observati
    - **Exploratory** — "look at the site signed in and propose skills." Then the
      approval gate in `propose-site-skills` is mandatory before anything is written.
 4. **Target repo** — the plugin repo being built. If it does not exist, hand off to
-   `create-claude-plugins:new-claude-plugin` to scaffold and register it, then return.
+   `create-plugins:new-claude-plugin` to scaffold and register it, then return.
 5. **Private workspace** — where captures go. `browser-data-capture:init-private-repo`
    provisions one if there isn't one; see `references/repo-layout.md`.
 6. **Constraints** — anything the plugin must never do on this site (order, pay,

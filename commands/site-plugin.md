@@ -20,6 +20,6 @@ Run the pipeline, stopping where each skill says to stop:
 8. `publication-gate` — classify the whole diff before the first commit.
 
 If the target plugin repo does not exist, hand off to
-`create-claude-plugins:new-claude-plugin` to scaffold and register it, then return.
+`create-plugins:new-claude-plugin` to scaffold and register it, then return.
 
 Do not skip step 5. Do not author anything the user has not approved.

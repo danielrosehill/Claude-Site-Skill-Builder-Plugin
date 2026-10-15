@@ -61,7 +61,7 @@ and any findings. → `references/repo-layout.md`
   live-tab observation, OpenAPI generation, per-domain maps, and `disclose-finding`
   for coordinated disclosure. Use it for the capture; this plugin decides what to
   build from it.
-- **`create-claude-plugins`** — scaffolds and registers the plugin repo itself. This
+- **`create-plugins`** — scaffolds and registers the plugin repo itself. This
   plugin fills a repo; it does not create one.
 - **`userscript-development`** — same browser-driven authoring shape, different
   artefact (Tampermonkey userscripts).
