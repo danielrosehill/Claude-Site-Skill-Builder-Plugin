@@ -22,9 +22,10 @@ Record the verdict and what was checked at the top of `notes/brief.md`.
    that. A browser is not needed.
 3. **Supervised browser development** is the last resort. Use it when rungs 1 and 2
    fail, or when the browser is the most logical or only way to get the functions.
-   The rest of this pipeline is for that case. Even here, check the site's own
-   network requests early (`map-site-api`). An unauthenticated front-end API beats
-   element parsing for durability.
+   The rest of this pipeline is for that case. Even here, the site's own network
+   requests come first on every page (`references/network-discovery.md`). The
+   JSON the page already fetches beats element parsing for durability and speed.
+   Read `references/anti-bot-posture.md` before the first page load.
 
 ## Inputs to gather
 
@@ -34,10 +35,13 @@ Record the verdict and what was checked at the top of `notes/brief.md`.
    to happen inside it? Skills that act on the user's own account are the normal case
    and set the default route to their own browser.
 3. **The brief.** Two shapes, and the user will say which:
-   - **Directed** — "here are the pages, and here is what I want to be able to ask."
-     Take the page list verbatim; do not add pages without saying so.
-   - **Exploratory** — "look at the site signed in and propose skills." Then the
-     approval gate in `propose-site-skills` is mandatory before anything is written.
+   - **Directed**: "here are the URLs, and here is what I want to be able to ask."
+     Take the URL list verbatim into the brief. Don't add pages without saying so, and
+     don't run `survey-site-surface`. These URLs are the skills' scope.
+   - **Exploratory**: "look at the site signed in and propose skills." Run
+     `survey-site-surface` to short-list pages for the user to tick, then the approval
+     gate in `propose-site-skills` is mandatory before anything is written.
+   If the user doesn't say which, ask. A pasted list of URLs means directed.
 4. **Target repo** — the plugin repo being built. If it does not exist, hand off to
    `create-plugins:new-claude-plugin` to scaffold and register it, then return.
 5. **Private workspace** — where captures go. `browser-data-capture:init-private-repo`
@@ -58,6 +62,8 @@ Record the verdict and what was checked at the top of `notes/brief.md`.
 4. Write `notes/brief.md` in the target repo: target, market, page list, the
    questions the skills must answer, constraints, date.
 5. Run `pick-browser-route` and record the outcome in the brief.
+6. Exploratory brief only: run `survey-site-surface` and copy the user's picks into
+   the brief's page list.
 
 ## Output
 

@@ -37,8 +37,11 @@ Full ladder and rationale: `references/browser-routes.md`.
    walked unattended. Verify one page against route 1 or 2 first: if it differs when
    signed in, headless is capturing the wrong variant. Use a dedicated profile, never
    the user's live Chrome profile directory.
-5. **If a route is blocked**, note it once and route around. One attempt, then stop —
-   see the conduct section of `references/publication-policy.md`.
+5. **If a route is blocked**, note it once and route around. One attempt, then stop.
+   See `references/anti-bot-posture.md` for handing a challenge to the user, and
+   the conduct section of `references/publication-policy.md`.
+5a. **Note the session lifetime** if it shows during the route check (a sign-out
+   after a short idle, or an expiry warning) and plan for `session-keepalive`.
 6. Record the decision in the profile's `access` block with the date and how it was
    checked.
 

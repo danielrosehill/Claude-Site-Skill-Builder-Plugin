@@ -60,8 +60,14 @@ right element was found.
 **`not_on_the_page`** — what a caller will ask for and the page cannot answer: stock,
 freight, delivery date. Prevents the next agent inventing it.
 
+**`session`** (when `requires_session`): `idle_timeout_minutes` (observed, or
+`null`), `timeout_signal`, `probe` (the site's own session-check path), `keepalive`
+(true when skills must arm `session-keepalive`), `verified`. Timings and signals only.
+
 **`conduct`** — `never[]`: the actions this plugin will not take on this site
 (ordering, changing account settings, retrying a challenge, parallel fan-out).
+`pace`: `max_pages_per_run`, `min_seconds_between_loads`. Skills honour it; see
+`anti-bot-posture.md`.
 
 ## Rules
 

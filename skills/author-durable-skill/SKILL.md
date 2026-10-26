@@ -36,6 +36,14 @@ the profile.
 7. **Define the breakage signature.** What the skill says when the site has moved:
    `CHANGED: <what> not found at <where>`. It must never return a partial result as if
    it were complete, and any script must exit non-zero.
+7a. **Pace and session.** Honour the profile's `conduct.pace`
+   (`references/anti-bot-posture.md`): sequential loads, and stop and hand to the user on a
+   challenge. If the profile has `session.keepalive: true`, copy
+   `templates/keepalive_cdp.py` into the target plugin's `scripts/` and add
+   arm-at-start / stop-at-end steps from `session-keepalive`. Every skill checks the
+   session first and asks the user to sign in when it has lapsed.
+7b. **End with cleanup.** The skill's last step closes the tabs it opened and stops
+   any keep-alive it armed (`close-out-session` steps 1–2), on success and on failure.
 8. **State the limits.** What the skill does not cover, what is not on the page,
    whether the values are account-specific.
 9. **Add the provenance block:**

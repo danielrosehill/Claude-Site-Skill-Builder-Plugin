@@ -12,12 +12,19 @@ this skill applies.
 ## Inputs
 
 One or more URLs, and what the user wants from each page. With no URL list, take the
-page list from `notes/brief.md`.
+page list from `notes/brief.md`, which is either the user's own list or their picks from
+`survey-site-surface`.
 
 ## Steps
 
-For each page, in sequence — never fan out parallel loads against a live site:
+For each page, in sequence, at the pace in `references/anti-bot-posture.md`. Never
+fan out parallel loads against a live site:
 
+0. **Start network capture before loading** (`references/network-discovery.md`),
+   in the same tab you will keep using. Afterwards, list the data calls the page made
+   and which on-screen values each one carries. If a call carries the data, that is
+   the handle (rung 2) and the markup is the fallback. Pass the calls to
+   `map-site-api`.
 1. **Load it on the chosen route** and confirm identity: final URL after redirects,
    `rel=canonical`, title, and any identifier echoed back. Note any mismatch — a
    numeric id whose slug is decorative will serve a different item at 200.
@@ -41,6 +48,9 @@ For each page, in sequence — never fan out parallel loads against a live site:
    would identify it — never a coordinate, an offset, or "the third button".
 9. **Classify every line** against `references/publication-policy.md` as you write it.
    Account-bound values and defence observations go to the private workspace.
+10. **Watch the session.** If identity drops mid-walk (login redirect, 401 on a data
+    call), stop and follow `session-keepalive`. Don't record a login page as the
+    observation.
 
 ## Output
 

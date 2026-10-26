@@ -19,6 +19,10 @@ capture whenever it is installed** and treat its `endpoints.json` as the input h
 This skill is the plugin-authoring half: deciding which of those endpoints a skill
 should depend on, and recording them in the profile in a form that ages well.
 
+It runs for every observed page and isn't held back for pages where the markup looks hard.
+How to capture on each browser route, and what to look for:
+`references/network-discovery.md`.
+
 ## Steps
 
 1. **Capture while driving the page normally** — the interactions the future skill
@@ -35,6 +39,8 @@ should depend on, and recording them in the profile in a form that ages well.
    apply the incidental-finding rule in `references/publication-policy.md`.
 5. **Pick a canary field** per endpoint — one field whose absence means the shape has
    changed. The drift probe checks for it.
+5a. **Flag the session-check endpoint** (`/me`, `/session`, `/heartbeat`) as the
+   profile's `session.probe`. It is the live-session check and the keep-alive target.
 6. **Sort into publishable and private.** Endpoints the public UI calls are ordinary
    integration detail. Endpoints found only in a JS bundle and never called are not
    published, and are not built on.

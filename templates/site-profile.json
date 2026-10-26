@@ -39,12 +39,23 @@
     }
   },
   "not_on_the_page": {},
+  "session": {
+    "idle_timeout_minutes": null,
+    "timeout_signal": "what showed the session had lapsed",
+    "probe": "/path/the/site/uses/to/check/the/session",
+    "keepalive": false,
+    "verified": "YYYY-MM-DD"
+  },
   "conduct": {
     "never": [
       "order, pay, or otherwise commit the user to a transaction",
       "change account settings",
       "retry or attempt to satisfy a bot challenge",
       "fan out parallel requests"
-    ]
+    ],
+    "pace": {
+      "max_pages_per_run": 30,
+      "min_seconds_between_loads": 3
+    }
   }
 }

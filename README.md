@@ -24,16 +24,24 @@ pages that need an unattended sweep; a plain fetch is used wherever it actually 
 
 | Skill | What it does |
 |---|---|
-| `site-recon-intake` | Target, page list or exploratory brief, account posture, constraints, robots/ToS |
+| `site-recon-intake` | Target, your URL list (directed) or an exploratory brief, account posture, constraints, robots/ToS |
 | `pick-browser-route` | Own Chrome → headless → fetch; proves the route on one page first |
-| `observe-page` | Walks the pages; writes an observation note per surface |
+| `survey-site-surface` | Exploratory only: walks the nav and network calls, short-lists pages worth wrapping, waits for your picks |
+| `observe-page` | Walks the pages with network capture on; writes an observation note per surface |
 | `map-site-api` | Records the JSON endpoints worth depending on, with a canary field each |
+| `session-keepalive` | Detects a lapsed session; bounded keep-alive ping while the session is being driven (`templates/keepalive_cdp.py` for CDP browsers, in-page timer for `claude-in-chrome`) |
 | `propose-site-skills` | Ranked candidate roster — **stops for per-line approval** |
 | `write-site-profile` | Every volatile fact in one JSON file |
 | `author-durable-skill` | Writes an approved skill against the durability doctrine |
 | `publication-gate` | Publishable / private / never-recorded, before every commit |
 | `drift-probe` | Re-verifies routes, identity, handles and canaries; reports `CHANGED` |
 | `repair-broken-skill` | Fixes what the site moved, and climbs the handle ladder while there |
+| `close-out-session` | Defined end: stop keep-alives, close only the agent's tabs, sweep, push, report |
+
+Network first: on the browser route, every page's own XHR/fetch calls are captured
+before its markup is read (`references/network-discovery.md`). Bot defences are
+met by being what the agent is, the user's own session at a human pace, with
+challenges handed to the user (`references/anti-bot-posture.md`).
 
 Commands: `/site-plugin` runs the build, `/site-drift` runs the maintenance loop.
 

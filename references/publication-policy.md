@@ -52,7 +52,9 @@ published. "Route X is not available to scripts, use the browser" is publishable
 
 ## Conduct while observing
 
-- Drive the site at human speed. No parallel fan-out, no retry storms.
+- Drive the site at human speed. No parallel fan-out, no retry storms. Operating
+  detail (pace budgets, handing a challenge to the user, what's out of bounds):
+  `anti-bot-posture.md`.
 - One attempt at a blocked route, then route around it or stop. Never iterate
   against a challenge — that is the line between using a site and attacking it.
 - In an authenticated session, stay read-only unless the user has explicitly asked
