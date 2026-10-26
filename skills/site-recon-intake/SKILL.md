@@ -8,6 +8,24 @@ description: Start building a plugin for a website — capture the target, the p
 Opens a site-plugin build. Everything downstream reads the brief this produces, so it
 is worth five minutes of questions rather than five hours of the wrong observations.
 
+## Triage first: should this plugin be built at all?
+
+Before gathering anything, run this ladder and stop at the first rung that fits.
+Record the verdict and what was checked at the top of `notes/brief.md`.
+
+1. **Someone already built it.** Search the plugin marketplaces and GitHub for an
+   existing plugin, skill set or MCP server for this site. If one covers what the user
+   needs, use it: list it in the user's third-party marketplace and stop. Build only
+   the functions it lacks, and say which ones.
+2. **There is a programmatic interface.** Look for an official API, an official or
+   vendor-hosted MCP server, or a documented export. Build the plugin's skills on
+   that. A browser is not needed.
+3. **Supervised browser development** is the last resort. Use it when rungs 1 and 2
+   fail, or when the browser is the most logical or only way to get the functions.
+   The rest of this pipeline is for that case. Even here, check the site's own
+   network requests early (`map-site-api`). An unauthenticated front-end API beats
+   element parsing for durability.
+
 ## Inputs to gather
 
 1. **Target** — the site, and the market if it varies by country (`uline-us`,

@@ -5,6 +5,7 @@ down trades away authentication, JavaScript, or fidelity.
 
 | # | Route | Session | Renders JS | Use when |
 |---|---|---|---|---|
+| 0 | A persistent agent browser: a signed-in Chrome on a server, driven over CDP through an MCP server, watched through a remote viewer | **The user's real logged-in session**, kept between runs | Yes | Default when the user has one. Same uses as route 1, without competing with the user's own browser for focus |
 | 1 | `claude-in-chrome` against the user's running Chrome | **The user's real logged-in session** | Yes | Default. Anything behind a login, a cart, an account page, a member price, a personalised view |
 | 2 | Headless Playwright / Puppeteer | Anonymous (or a profile the user provisions) | Yes | Public pages only, when a batch of pages must be walked unattended |
 | 3 | Plain HTTP fetch (`curl`, `WebFetch`, server-side fetchers) | Anonymous | No | Server-rendered pages, JSON endpoints, `robots.txt`, sitemaps — cheapest, use it wherever it actually works |

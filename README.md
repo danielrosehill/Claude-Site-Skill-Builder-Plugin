@@ -4,7 +4,13 @@ Build a Claude Code plugin for a website by looking at the site in your own brow
 Observe the pages, propose a roster of skills, get them approved one by one, write
 them so they survive a redesign, and keep them alive as the site drifts.
 
-The default route is **your own signed-in Chrome**, via `claude-in-chrome` — so the
+Before any of that, `site-recon-intake` triages: use an existing third-party plugin if
+one fits, build on an API or MCP if there is one, and fall back to supervised browser
+development only when neither works.
+
+The default route is a **signed-in browser you can watch**: a persistent agent browser
+if you run one (remote Chrome over CDP and MCP), otherwise **your own signed-in Chrome**,
+via `claude-in-chrome` — so the
 agent works inside the session you already have, no credentials are handled, and what
 it sees is what you see. Headless Playwright/Puppeteer is the fallback for public
 pages that need an unattended sweep; a plain fetch is used wherever it actually works.
